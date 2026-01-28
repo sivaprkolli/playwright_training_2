@@ -1,0 +1,69 @@
+id
+className
+name
+tagName
+
+linkText
+partialLinkText
+
+Xpath:
+//tagName[@id='Value']
+//tagName[text()='Vlaue']
+
+Methods:
+text()
+contains(locatorType, "locatorValue") : //label[contains(text(),'First name')]
+starts-with(locatorType, "locatorValue") : //input[starts-with(@id,'UserFirstName')]
+ends-with(locatorType, "locatorValue")
+normalize-space() : //label[normalize-space()='First name']
+//label[normalize-space(text())='Last name']
+
+Axis:
+Ancestor
+//div[text()='FINCH']/ancestor::div[@title="FINCH"]
+Parent
+//div[text()='FINCH']/parent::label/input
+//div[text()='FINCH']/../input
+
+Child
+//div[@title='FINCH']/child::div/label/input
+Descendant
+//div[@title="FINCH"]/descendant::input
+Followinf-sibling
+//label[normalize-space(text())='Last name']/following-sibling::span[starts-with(@id,'UserLastName')]
+Preeding-sibling
+//div[text()='Special Price']/preceding-sibling::input
+self
+Following
+//input[@name="UserFirstName" or @type="text"]/following::div // not use -  only in specific cases
+Preceeding
+//input[@name="UserFirstName" or @type="text"]/preceding::div  // not use - only in specific cases
+self-or-Descendant
+
+Conditions:
+And
+//input[@name="UserFirstName" and @type="text"]
+Or
+//input[@name="UserFirstName" or @type="text"]
+
+cssSelector:
+tagName[id='Value']
+input[name="UserFirstName"]
+
+tagName.className
+tagName#id
+input#user-name
+
+contains:
+span[id*='errMsg']
+
+starts-with:
+span[id^='errMsg']
+
+ends-with
+span[id$='errMsg']
+
+div[title="FINCH"] > div > label > input
+
+
+RelativeLocators

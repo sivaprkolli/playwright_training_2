@@ -1,0 +1,10 @@
+{
+    "chat.mcp.serverSampling": {
+        "PlaywrightLearnings/.vscode/mcp.json: my_playwright_mcp": {
+            "allowedModels": [
+                "copilot/claude-sonnet-4.5",
+                "copilot/gpt-5-mini"
+            ]
+        }
+    }
+}

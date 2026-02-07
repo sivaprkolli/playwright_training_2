@@ -1,0 +1,28 @@
+{
+  "runs": [],
+  "tests": {
+    "[firefox] signInTest.spec.ts::Login with valid credentials": [
+      {
+        "passed": true,
+        "duration": 2377,
+        "timestamp": "2026-02-07T04:21:06.402Z",
+        "skipped": false,
+        "retry": 0
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "runId": "run-1770438061263",
+      "timestamp": "2026-02-07T04:21:01.263Z",
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 5138,
+      "passRate": 100
+    }
+  ]
+}

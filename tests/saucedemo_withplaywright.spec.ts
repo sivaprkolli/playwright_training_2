@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 
 test('login with valid credentials', async ({ page }) => {
     await page.goto("https://www.saucedemo.com/");
@@ -8,14 +8,14 @@ test('login with valid credentials', async ({ page }) => {
 
     expect(heading).toBeVisible();
 
-    const unsernameInput = page.getByPlaceholder("Username");
+    const unsernameInput: Locator = page.getByPlaceholder("Username");
     await unsernameInput.fill("standard_user");
 
-    const passwordInput = page.getByPlaceholder("Password");
+    const passwordInput: Locator = page.getByPlaceholder("Password");
     await passwordInput.fill("secret_sauce");
 
 
-    const loginButton = page.getByRole('button', { name: 'Login' });
+    const loginButton: Locator = page.getByRole('button', { name: 'Login' });
     await loginButton.click();
 
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");

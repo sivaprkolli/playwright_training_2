@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -8,8 +7,11 @@ import { defineConfig, devices } from '@playwright/test';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
+
 /**
  * See https://playwright.dev/docs/test-configuration.
+ * 
+ * 
  */
 export default defineConfig({
   testDir: './tests',
@@ -22,7 +24,18 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+
+  reporter: [
+    ['playwright-smart-reporter', {
+      outputFile: 'smart-report.html',
+      historyFile: 'test-history.json',
+      maxHistoryRuns: 10,
+      performanceThreshold: 0.2,
+      slackWebhook: process.env.SLACK_WEBHOOK_URL,
+      teamsWebhook: process.env.TEAMS_WEBHOOK_URL,
+    }],
+  ],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     testIdAttribute: 'data-cs-override-id',

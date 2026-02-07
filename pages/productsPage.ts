@@ -1,12 +1,12 @@
 import { Page } from "@playwright/test";
 
-export class ProductsPage{
+export class ProductsPage {
 
-    constructor(public page: Page){
-        
+    constructor(public page: Page) {
+
     }
-    
-async getProductsCount(){
-    
-}
+
+    async getProductsCount() {
+        return await this.page.locator('.inventory_item').count();
+    }
 }
